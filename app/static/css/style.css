@@ -305,3 +305,34 @@ a {
         padding: 1.25rem;
     }
 }
+
+/* ==========================================================================
+   FIX: NAVBAR FIXA NO TOPO COM FUNDO PREENCHIDO (HUB / PAINEL)
+   ========================================================================== */
+.top-navbar,
+.admin-navbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    background-color: var(--bg-surface, #1E293B) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-color, #334155);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Fundo no Modo Claro */
+[data-theme="light"] .top-navbar,
+[data-theme="light"] .admin-navbar {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+/* Fundo no Modo Escuro */
+[data-theme="dark"] .top-navbar,
+[data-theme="dark"] .admin-navbar {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    border-bottom: 1px solid #334155;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}

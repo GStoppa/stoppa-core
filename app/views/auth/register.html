@@ -7,12 +7,14 @@
         <div class="auth-card">
             <div class="auth-header">
                 <div class="auth-brand-logo-box">
+                    <a href="{{ url_for('main.landing') }}" class="auth-brand-logo-box" title="Voltar à Página Inicial">
                     <img src="{{ url_for('static', filename='img/brand/stoppacore-dark-V.png') }}" 
                          alt="Stoppa Core" 
                          class="auth-brand-img brand-dark-only">
                     <img src="{{ url_for('static', filename='img/brand/stoppacore-light-V.png') }}" 
                          alt="Stoppa Core" 
                          class="auth-brand-img brand-light-only">
+                    </a>
                 </div>
                 <h1 class="auth-title">Criar Conta da Loja</h1>
                 <p class="auth-subtitle">Registe a sua loja e centralize a operação do seu e-commerce.</p>

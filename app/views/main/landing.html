@@ -6,20 +6,48 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
 {% endblock %}
 
-{% block content %}
+{# Desativa o botão flutuante para inseri-lo perfeitamente na barra de navegação #}
+{% block theme_toggle %}{% endblock %}
+
+{% block body %}
 <div class="landing-wrapper">
 
-    <!-- Navegação Superior Simplificada -->
+    <!-- Navegação Superior -->
     <header class="landing-header">
         <div class="landing-nav-container">
             <a href="{{ url_for('main.landing') }}" class="landing-brand">
                 <img src="{{ url_for('static', filename='img/brand/stoppacore-light-H.png') }}" 
-                     alt="Stoppa Core" class="landing-logo logo-light">
+                     alt="Stoppa Core" class="landing-logo brand-light-only">
                 <img src="{{ url_for('static', filename='img/brand/stoppacore-dark-H.png') }}" 
-                     alt="Stoppa Core" class="landing-logo logo-dark">
+                     alt="Stoppa Core" class="landing-logo brand-dark-only">
             </a>
 
             <div class="landing-nav-actions">
+                <!-- Botão de Tema Integrado na Navbar -->
+                <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" title="Alternar Modo Claro/Escuro" aria-label="Alternar Tema">
+                    <span class="theme-toggle-track">
+                        <span class="theme-toggle-thumb"></span>
+                        <span class="theme-option sun-option" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v2"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="m4.93 4.93 1.41 1.41"></path>
+                                <path d="m17.66 17.66 1.41 1.41"></path>
+                                <path d="M2 12h2"></path>
+                                <path d="M20 12h2"></path>
+                                <path d="m6.34 17.66-1.41 1.41"></path>
+                                <path d="m19.07 4.93-1.41 1.41"></path>
+                            </svg>
+                        </span>
+                        <span class="theme-option moon-option" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                            </svg>
+                        </span>
+                    </span>
+                </button>
+
                 <a href="{{ url_for('auth.login') }}" class="btn-nav-login">Entrar</a>
                 <a href="{{ url_for('auth.register') }}" class="btn-nav-register">Cadastre-se</a>
             </div>
@@ -27,7 +55,7 @@
     </header>
 
     <main>
-        <!-- Hero Section: Apresentação & Conversão -->
+        <!-- Hero Section -->
         <section class="landing-hero">
             <div class="hero-badge">
                 <span class="badge-pulse"></span>
@@ -42,7 +70,6 @@
                 Elimine o retrabalho manual. Conecte seus marketplaces, sincronize estoque em tempo real e controle produtos e equipes em uma plataforma única e veloz.
             </p>
 
-            <!-- Ações Principais -->
             <div class="hero-actions">
                 <a href="{{ url_for('auth.register') }}" class="btn-hero-primary">
                     <span>Criar Minha Conta</span>
@@ -112,9 +139,9 @@
         </section>
     </main>
 
-    <!-- Rodapé -->
+    <!-- Rodapé Oficial -->
     <footer class="landing-footer">
-        <p>&copy; Stoppa Core. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Stoppa Core — E-commerce Management. Todos os direitos reservados.</p>
     </footer>
 
 </div>

@@ -1,14 +1,17 @@
-from flask import Blueprint, render_template, session
+from flask import Blueprint, render_template, session, redirect, url_for
 from app.middlewares.auth_middleware import login_required
 from app.models.product_model import Product
 
-main_bp = Blueprint("main", __name__)
+main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/')
 def landing():
+    if 'user_id' in session:
+        return redirect(url_for('main.welcome'))
     return render_template('main/landing.html')
 
-@main_bp.route("/welcome")
+
+@main_bp.route('/welcome')
 @login_required
 def welcome():
     store_id = session.get("store_id")
@@ -33,3 +36,9 @@ def welcome():
         margem_negativa=margem_negativa,
         estoque_100_em_dia=estoque_100_em_dia
     )
+
+
+@main_bp.route('/dashboard')
+@login_required
+def dashboard():
+    return redirect(url_for('main.welcome'))

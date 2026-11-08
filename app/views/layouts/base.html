@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Stoppa Core - E-commerce Management{% endblock %}</title>
+    <title>{% block title %}Stoppa Core — E-commerce Management{% endblock %}</title>
 
     <!-- Execução antecipada para evitar cintilação (FOUC) -->
     <script>
@@ -23,9 +23,12 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    {% block extra_css %}{% endblock %}
+    
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
 </head>
 <body class="base-body">
+    {% block theme_toggle %}
     <!-- Botão de Tema Flutuante para Telas de Acesso e Erro -->
     <div class="auth-theme-toggle-wrapper">
         <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" title="Alternar Modo Claro/Escuro" aria-label="Alternar Tema">
@@ -52,6 +55,7 @@
             </span>
         </button>
     </div>
+    {% endblock %}
 
     {% block body %}{% endblock %}
 

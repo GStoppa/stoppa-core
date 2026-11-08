@@ -10,6 +10,9 @@ def landing():
         return redirect(url_for('main.welcome'))
     return render_template('main/landing.html')
 
+@main_bp.route('/landing')
+def landing_preview():
+    return render_template('main/landing.html')
 
 @main_bp.route('/welcome')
 @login_required

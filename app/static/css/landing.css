@@ -49,9 +49,11 @@
 }
 
 .landing-logo {
-    height: 34px;
+    height: 42px;
     width: auto;
+    max-width: 200px;
     object-fit: contain;
+    display: block;
 }
 
 .logo-light { display: block; }

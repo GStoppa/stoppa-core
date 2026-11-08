@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
 {% endblock %}
 
-{# Desativa o botão flutuante para inseri-lo perfeitamente na barra de navegação #}
+{# Desativa o botão flutuante para mantê-lo integrado perfeitamente na barra de navegação #}
 {% block theme_toggle %}{% endblock %}
 
 {% block body %}
@@ -49,86 +49,287 @@
                 </button>
 
                 <a href="{{ url_for('auth.login') }}" class="btn-nav-login">Entrar</a>
-                <a href="{{ url_for('auth.register') }}" class="btn-nav-register">Cadastre-se</a>
+                <a href="{{ url_for('auth.register') }}" class="btn-nav-register">Criar Conta Grátis</a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- MÓDULO 1: Hero Section de Alta Conversão -->
         <section class="landing-hero">
             <div class="hero-badge">
                 <span class="badge-pulse"></span>
-                <span>Hub Multicanal Integrado</span>
+                <span>Blindagem Operacional Multicanal</span>
             </div>
 
             <h1 class="hero-title">
-                Sua operação de e-commerce centralizada em um <span class="highlight">único núcleo</span>.
+                Pare de perder reputação e dinheiro com <span class="highlight">estoque furado</span>.
             </h1>
 
             <p class="hero-subtitle">
-                Elimine o retrabalho manual. Conecte seus marketplaces, sincronize estoque em tempo real e controle produtos e equipes em uma plataforma única e veloz.
+                Centralize suas operações da <strong>Shopee, Mercado Livre, TikTok Shop e AliExpress</strong>. Vendeu em um canal, o saldo físico é abatido em todos os outros em tempo real.
             </p>
 
             <div class="hero-actions">
                 <a href="{{ url_for('auth.register') }}" class="btn-hero-primary">
-                    <span>Criar Minha Conta</span>
+                    <span>Blindar Minha Loja Agora</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </a>
                 <a href="{{ url_for('auth.login') }}" class="btn-hero-secondary">
-                    <span>Já sou cliente (Acessar Hub)</span>
+                    <span>Acessar Painel</span>
                 </a>
             </div>
+
+            <!-- Reversão de Risco / Prova de Baixo Atrito -->
+            <div class="hero-trust-bar">
+                <span class="trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    Sem necessidade de cartão no cadastro
+                </span>
+                <span class="trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Isolamento seguro por loja
+                </span>
+                <span class="trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Setup operacional em 3 minutos
+                </span>
+            </div>
+
+            <!-- MÓDULO 2: Mockup Interativo do Painel Stoppa Core -->
+            <div class="hero-preview-window">
+                <div class="window-topbar">
+                    <div class="window-dots">
+                        <span class="dot-red"></span>
+                        <span class="dot-yellow"></span>
+                        <span class="dot-green"></span>
+                    </div>
+                    <div class="window-title">stoppacore.app/dashboard</div>
+                    <div class="window-status">
+                        <span class="badge-status sync">Hub Sincronizado</span>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <div class="mockup-header-row">
+                        <div>
+                            <span class="mockup-hub-title">Visão Geral da Operação</span>
+                            <span class="mockup-hub-sub">Monitorização em tempo real de produtos, saídas e patrimônio</span>
+                        </div>
+                    </div>
+
+                    <div class="mockup-kpi-grid">
+                        <div class="mockup-kpi">
+                            <div class="mockup-kpi-top">
+                                <span class="mockup-label">Estoque Físico Total</span>
+                                <span class="mockup-kpi-icon icon-blue">📦</span>
+                            </div>
+                            <div class="mockup-val">60 <small>un</small></div>
+                            <span class="mockup-sub">Em 2 anúncios ativos</span>
+                        </div>
+
+                        <div class="mockup-kpi">
+                            <div class="mockup-kpi-top">
+                                <span class="mockup-label">Catálogo & Grade</span>
+                                <span class="mockup-kpi-icon icon-blue">🏷️</span>
+                            </div>
+                            <div class="mockup-val">3 <small>SKUs</small></div>
+                            <span class="mockup-sub">Variações mapeadas</span>
+                        </div>
+
+                        <div class="mockup-kpi">
+                            <div class="mockup-kpi-top">
+                                <span class="mockup-label">Patrimônio em Estoque</span>
+                                <span class="mockup-kpi-icon icon-green">💰</span>
+                            </div>
+                            <div class="mockup-val text-emerald">R$ 9.510,00</div>
+                            <span class="mockup-sub text-emerald">Lucro Proj.: R$ 1.575,00 (16.56%)</span>
+                        </div>
+
+                        <div class="mockup-kpi">
+                            <div class="mockup-kpi-top">
+                                <span class="mockup-label">Saúde do Estoque</span>
+                                <span class="mockup-kpi-icon icon-green">🛡️</span>
+                            </div>
+                            <div class="mockup-val text-emerald">100% <small>Em Dia</small></div>
+                            <span class="mockup-sub">Nenhum item crítico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Barra de Marketplaces Suportados -->
+        <!-- MÓDULO 3: O Contraste "Dor vs. Solução" (Framework PAS) -->
+        <section class="landing-contrast">
+            <div class="section-header">
+                <h2 class="section-title">O que acontece quando você tenta gerenciar na mão?</h2>
+                <p class="section-subtitle">Vender em múltiplos canais é o caminho mais rápido para faturar alto, mas controlar sem automação destrói a sua operação.</p>
+            </div>
+
+            <div class="contrast-grid">
+                <!-- Coluna da Dor (O Caos das Planilhas) -->
+                <div class="contrast-card card-pain">
+                    <div class="contrast-tag tag-pain">O Caos das Planilhas</div>
+                    <ul class="contrast-list">
+                        <li>
+                            <span class="list-icon">❌</span>
+                            <div>
+                                <strong>Vendas fantasmas e cancelamentos</strong>
+                                <p>Um produto esgota na Shopee de madrugada, continua ativo no Mercado Livre e você toma reclamação e perde relevância de ranking.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon">❌</span>
+                            <div>
+                                <strong>Prejuízo invisível na precificação</strong>
+                                <p>Taxas e comissões divergentes fazem com que você venda itens com margem negativa sem perceber, pagando para trabalhar.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon">❌</span>
+                            <div>
+                                <strong>Horas de digitação e retrabalho manual</strong>
+                                <p>Cadastrar o mesmo produto, descrição, fotos e variantes manualmente em cada marketplace, gastando tempo que deveria ser de vendas.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coluna da Solução (Com o Stoppa Core) -->
+                <div class="contrast-card card-gain">
+                    <div class="contrast-tag tag-gain">Com o Stoppa Core</div>
+                    <ul class="contrast-list">
+                        <li>
+                            <span class="list-icon">✅</span>
+                            <div>
+                                <strong>Sincronização física em milissegundos</strong>
+                                <p>O estoque de todas as variações fica blindado. Saiu uma peça em qualquer canal, o barramento de API propaga a baixa em todos os outros.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon">✅</span>
+                            <div>
+                                <strong>Alerta automático de margem de lucro</strong>
+                                <p>O sistema sinaliza na hora se o preço de venda está comprometendo a margem líquida, garantindo lucro real em cada transação.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon">✅</span>
+                            <div>
+                                <strong>Auditoria cirúrgica e controle por equipe</strong>
+                                <p>Rastreabilidade completa de quem movimentou cada peça no estoque físico, separando permissões entre operadores e gestores.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MÓDULO 4A: Canais Conectados & Barramentos de API -->
         <section class="landing-channels">
-            <span class="channels-label">Canais e Marketplaces Prontos para Conectar</span>
+            <div class="section-header">
+                <span class="channels-label">Integrações Oficiais Prontas para Operar</span>
+                <h2 class="section-title">Conecte seus canais de venda em minutos</h2>
+                <p class="section-subtitle">O barramento de APIs do Stoppa Core mantém seus catálogos e volumes físicos sincronizados nas principais plataformas do mercado.</p>
+            </div>
+
             <div class="channels-grid">
+                <!-- Canal 1: Shopee -->
                 <div class="channel-card">
-                    <span class="channel-dot"></span>
-                    <strong>Shopee</strong>
+                    <div class="channel-icon-box icon-shopee">🛍️</div>
+                    <div class="channel-meta">
+                        <strong>Shopee</strong>
+                        <small>Open Platform API v2</small>
+                    </div>
+                    <span class="channel-status-pill">Sincronizado</span>
                 </div>
+
+                <!-- Canal 2: Mercado Livre -->
                 <div class="channel-card">
-                    <span class="channel-dot"></span>
-                    <strong>Mercado Livre</strong>
+                    <div class="channel-icon-box icon-meli">🤝</div>
+                    <div class="channel-meta">
+                        <strong>Mercado Livre</strong>
+                        <small>Mercado Envios & API</small>
+                    </div>
+                    <span class="channel-status-pill">Sincronizado</span>
                 </div>
+
+                <!-- Canal 3: TikTok Shop -->
                 <div class="channel-card">
-                    <span class="channel-dot"></span>
-                    <strong>TikTok Shop</strong>
+                    <div class="channel-icon-box icon-tiktok">🎵</div>
+                    <div class="channel-meta">
+                        <strong>TikTok Shop</strong>
+                        <small>Partner Marketplace API</small>
+                    </div>
+                    <span class="channel-status-pill">Sincronizado</span>
                 </div>
+
+                <!-- Canal 4: AliExpress -->
                 <div class="channel-card">
-                    <span class="channel-dot"></span>
-                    <strong>AliExpress</strong>
+                    <div class="channel-icon-box icon-aliexpress">📦</div>
+                    <div class="channel-meta">
+                        <strong>AliExpress</strong>
+                        <small>Seller Open Gateway</small>
+                    </div>
+                    <span class="channel-status-pill">Sincronizado</span>
                 </div>
             </div>
         </section>
 
-        <!-- 3 Pilares Fundamentais -->
+        <!-- MÓDULO 4B: Pilares de Engenharia e Negócio -->
         <section class="landing-pillars">
-            <div class="pillar-card">
-                <div class="pillar-icon">⚡</div>
-                <h3>Sincronização em Tempo Real</h3>
-                <p>Vendeu em um canal? O estoque é atualizado em todos os outros automaticamente, prevenindo rupturas e cancelamentos.</p>
+            <div class="section-header">
+                <h2 class="section-title">Engenharia construída para quem opera no mundo real</h2>
+                <p class="section-subtitle">Sem telas lentas, sem dados duplicados. Recursos pensados para a rotina diária de expedição, embalagem e controle fiscal.</p>
             </div>
 
-            <div class="pillar-card">
-                <div class="pillar-icon">📦</div>
-                <h3>Catálogo Unificado</h3>
-                <p>Cadastre produtos, variantes, códigos de barra e fotos uma única vez e envie para múltiplos marketplaces com um clique.</p>
-            </div>
+            <div class="pillars-grid">
+                <!-- Pilar 1 -->
+                <div class="pillar-card">
+                    <div class="pillar-icon-wrapper icon-amber">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <path d="m9 14 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3>Auditoria Forense de Estoque</h3>
+                    <p>Cada entrada, saída, ajuste manual ou abate de venda gera um registro imutável com data, quantidade, estoque anterior, saldo resultante e o usuário responsável pela ação.</p>
+                </div>
 
-            <div class="pillar-card">
-                <div class="pillar-icon">🛡️</div>
-                <h3>Controle de Acessos</h3>
-                <p>Separe tarefas com segurança concedendo acessos customizados para administradores e gerentes de operação.</p>
+                <!-- Pilar 2 -->
+                <div class="pillar-card">
+                    <div class="pillar-icon-wrapper icon-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m7.5 4.27 9 5.15"></path>
+                            <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+                            <path d="m3.3 7 8.7 5 8.7-5"></path>
+                            <path d="M12 22V12"></path>
+                        </svg>
+                    </div>
+                    <h3>Grade de SKUs & Variações</h3>
+                    <p>Controle produtos simples ou com grades completas de tamanhos e cores. Cada variação possui código de barras individual, fotos dedicadas, custo de reposição e estoque mínimo de alerta.</p>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="pillar-card">
+                    <div class="pillar-icon-wrapper icon-emerald">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Permissões por Cargo (RBAC)</h3>
+                    <p>Delegue funções operacionais para sua equipe com segurança. Operadores executam conferências e contagens sem visualizar métricas financeiras ou ter acesso às configurações estratégicas da loja.</p>
+                </div>
             </div>
         </section>
 
-        <!-- Chamada de Ação Final (Bottom CTA) -->
+        <!-- CTA Final -->
         <section class="landing-cta-bottom">
             <h2>Pronto para otimizar suas vendas?</h2>
             <p>Junte-se à operação do Stoppa Core e controle seus marketplaces sem dor de cabeça.</p>

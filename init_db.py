@@ -27,11 +27,9 @@ def inicializar_banco():
     cursor = conn.cursor()
 
     try:
-        # Ativa o modo WAL e chaves estrangeiras
         cursor.execute("PRAGMA foreign_keys = ON;")
         cursor.execute("PRAGMA journal_mode = WAL;")
 
-        # 1. Criação base das tabelas principais
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS stores (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -115,7 +113,6 @@ def inicializar_banco():
             );
         """)
 
-        # 2. Migração defensiva: garante a existência de todas as colunas em bases legadas
         migracoes = {
             "stores": {
                 "document": "TEXT",
@@ -154,7 +151,6 @@ def inicializar_banco():
         for tabela, colunas in migracoes.items():
             migrar_colunas_tabela(cursor, tabela, colunas)
 
-        # 3. Criação de índices para otimização de consultas
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_store ON products(store_id);")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_id);")
@@ -164,7 +160,6 @@ def inicializar_banco():
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_movements_variant ON stock_movements(variant_id);")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_movements_created ON stock_movements(created_at);")
 
-        # 4. Assegurar loja padrão
         agora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         cursor.execute("SELECT id FROM stores LIMIT 1;")
@@ -179,7 +174,6 @@ def inicializar_banco():
             store_id = cursor.lastrowid
             print(f"[INICIALIZAÇÃO] Loja padrão criada (ID: {store_id}).")
 
-        # 5. Assegurar utilizador administrador
         cursor.execute("SELECT id FROM users WHERE email = 'admin@shopee.com';")
         if not cursor.fetchone():
             cursor.execute("""
@@ -195,7 +189,6 @@ def inicializar_banco():
             ))
             print("[INICIALIZAÇÃO] Utilizador 'admin@shopee.com' configurado com palavra-passe 'admin'.")
 
-        # 6. Assegurar categorias padrão
         cursor.execute("SELECT COUNT(*) AS total FROM categories WHERE store_id = ?;", (store_id,))
         if cursor.fetchone()["total"] == 0:
             categorias_iniciais = ["Vestuário", "Calçados", "Acessórios", "Eletrônicos", "Geral"]
